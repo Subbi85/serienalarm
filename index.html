@@ -4,61 +4,22 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Serien- / Filmalarm</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <script src="js/main.js" defer></script>
   </head>
   <body>
-    <!-- Sichtbarer Dokumentinhalt im body -->
-      <h2>Hallo Welt</h2>
+    <div class="header">
+      <h1>Serienalarm</h1>
+    </div>
+      
       <div id="display_container"></div>
       <h3>API Daten:</h3>
       <ol id="apiList">
       </ol>
+
+    <div class="footer">
+      Footer
+    </div>
   </body>
 
-  <script>
-
-
-  var display = document.getElementById("display_container");
-  display.innerHTML = "Test_Container";
-
-  getData();
-
-//Besorgen von API-Daten
-  function getData(){
-    var key = "fe58beaf1d2866c93f5b52ffe66777bb";
-    var url = "https://api.themoviedb.org/3/movie/550?api_key="+key;
-
-    var iniRequest = new XMLHttpRequest();
-    iniRequest.open('GET', url);
-    iniRequest.onload=function(){
-    	var score = JSON.parse(iniRequest.responseText);
-		  display.innerHTML = "ERFOLGREICH";
-      console.log(score);
-      buildApiData(score)
-    }
-    iniRequest.send();
-  }
-
-    //Aufbauen der Liste mit API-Daten
-    function buildApiData(data){
-      var list = document.getElementById("apiList");
-      
-      //Name
-      var newLi = document.createElement("li");
-      var newLiText = document.createTextNode(data.original_title);
-      newLi.appendChild(newLiText);
-      list.appendChild(newLi);
-      
-      //Klasse
-      newLi = document.createElement("li");
-      newLiText = document.createTextNode(data.homepage);
-      newLi.appendChild(newLiText);
-      list.appendChild(newLi);
-      
-      //Class
-      newLi = document.createElement("li");
-      newLiText = document.createTextNode(data.serienalarm);
-      newLi.appendChild(newLiText);
-      list.appendChild(newLi);
-    }
-  </script>
 </html>

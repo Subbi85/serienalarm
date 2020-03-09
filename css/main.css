@@ -1,0 +1,7 @@
+.header, .footer{
+    width: 90%;
+    background-color: #ff6600;
+    padding: 5px;
+    text-align: center;
+    margin: 0 auto;
+}
